@@ -46,22 +46,7 @@ class ViewController: UIViewController {
         return labelView
     }()
     
-    let containerView: UIView = {
-        let normalView = UIView()
-        normalView.translatesAutoresizingMaskIntoConstraints = false
-        normalView.backgroundColor = .orange
-        normalView.layer.cornerRadius = 10
-    
-        return normalView
-    }()
-    
-    let viewForStack: UIView = {
-       let normalView = UIView()
-        normalView.translatesAutoresizingMaskIntoConstraints = false
-        normalView.backgroundColor = .orange
-        normalView.layer.cornerRadius = 10
-        return normalView
-    }()
+
     
     let containerLabel1: UILabel = {
        let label = UILabel()
@@ -107,7 +92,24 @@ class ViewController: UIViewController {
          return label
     }()
     
-    let stackGrades: UIStackView = {
+    let containerView: UIView = {
+        let normalView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 80))
+        normalView.translatesAutoresizingMaskIntoConstraints = false
+        normalView.backgroundColor = .orange
+        normalView.layer.cornerRadius = 10
+    
+        return normalView
+    }()
+    
+    let viewForStack: UIView = {
+       let normalView = UIView()
+        normalView.translatesAutoresizingMaskIntoConstraints = false
+        normalView.backgroundColor = .orange
+        normalView.layer.cornerRadius = 10
+        return normalView
+    }()
+    
+    let verticalStack: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.backgroundColor = .gray
@@ -115,6 +117,18 @@ class ViewController: UIViewController {
         stackView.alignment = .center
         stackView.layer.cornerRadius = 10
         stackView.axis = .vertical
+        stackView.spacing = 1
+        return stackView
+    }()
+    
+    let horizontalStack: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.backgroundColor = .gray
+        stackView.distribution = .fillEqually
+        stackView.alignment = .center
+        stackView.layer.cornerRadius = 10
+        stackView.axis = .horizontal
         stackView.spacing = 1
         return stackView
     }()
@@ -135,10 +149,25 @@ class ViewController: UIViewController {
        
         //viewForStack.addSubview(containerLabel3)
      
-        addViewsToStackView()
-        //view.addSubview(stackGrades)
-        setupLayout()
+        //addViewsToStackView()
+ 
+        let ulText = UILabel()
+        ulText.text = "text"
+        let ulTextTwo = UILabel()
+        ulTextTwo.text = "text2"
+        horizontalStack.addArrangedSubview(ulText)
+        horizontalStack.addArrangedSubview(ulTextTwo)
+        let viewContainer = UIView()
+        //viewContainer.addSubview(horizontalStack)
+        containerView.addSubview(horizontalStack)
+        setupFirstPart()
+      
+            verticalStack.addArrangedSubview(containerView)
         
+        
+        view.addSubview(verticalStack)
+        setupLayout()
+        setupSecondPart()
         
         //==========================
         /*
@@ -172,42 +201,25 @@ class ViewController: UIViewController {
     
     func addViewsToStackView() {
         let numberoOfGrades = 5
-        
-        let stackView = UIStackView()
-        
-        stackView.axis = .vertical
-        stackView.distribution = .fillEqually
-        stackView.spacing = 10
-        view.addSubview(stackView)
-
-        // stackView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
-
-        // autolayout constraint
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-
-        NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: detailText.bottomAnchor),
-            stackView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            stackView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -220)
-        ])
-        
+    
         for i in 1...numberoOfGrades {
             print(i)
+            
             let label = UILabel()
-            let view = UIView()
-            //view.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+            label.font = label.font.withSize(15)
             label.text = "Evaluacion Continua \(i)"
-            view.backgroundColor = .red
-            
-            let button = UIButton()
-            button.backgroundColor = .red
-            button.titleLabel?.font = UIFont(name: "System", size: 17)
-            
-            button.titleLabel?.text = "bot \(i)"
-            stackView.addArrangedSubview(view)
+            let view2 = UIView()
+            view2.backgroundColor = .orange
+            view2.layer.cornerRadius = 10
+            verticalStack.addArrangedSubview(label)
         }
-        view.addSubview(stackView)
+            
+        
+    }
+    func addLabelsToVerticalStack() {
+        let gradeLabel = UILabel()
+        
+        gradeLabel.text = "Nota de evaluación"
         
     }
     
@@ -230,17 +242,12 @@ class ViewController: UIViewController {
         detailText.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         //detailText.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -120).isActive = true
 
-        //stack view constrains
-        /*
-        stackGrades.topAnchor.constraint(equalTo: detailText.bottomAnchor, constant: 20).isActive = true
-        //stackGrades.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        //stackGrades.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9).isActive = true
-        //stackGrades.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.4).isActive = true
-        stackGrades.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
-        stackGrades.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
-        stackGrades.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -220).isActive = true
+ 
         
-        */
+        
+      
+        
+    
         
        /* //containerView constrains
         containerView.topAnchor.constraint(equalTo: stackGrades.bottomAnchor, constant: 20).isActive = true
@@ -277,9 +284,21 @@ class ViewController: UIViewController {
         
     }
     
+    func setupFirstPart() {
+        //stack view horizon stack view constrains
+        horizontalStack.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 15).isActive = true
+        horizontalStack.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10).isActive = true
+        horizontalStack.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10).isActive = true
+        horizontalStack.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 0).isActive = true
+        
+      
+    }
     
-    
-    
+    func setupSecondPart() {
+        //stack view constrains
+        verticalStack.topAnchor.constraint(equalTo: detailText.bottomAnchor, constant: 10).isActive = true
+        verticalStack.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+    }
 
 
 }
