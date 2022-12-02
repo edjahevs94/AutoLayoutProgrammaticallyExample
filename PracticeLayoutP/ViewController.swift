@@ -136,7 +136,7 @@ class ViewController: UIViewController {
         //viewForStack.addSubview(containerLabel3)
      
         addViewsToStackView()
-        view.addSubview(stackGrades)
+        //view.addSubview(stackGrades)
         setupLayout()
         
         
@@ -173,6 +173,25 @@ class ViewController: UIViewController {
     func addViewsToStackView() {
         let numberoOfGrades = 5
         
+        let stackView = UIStackView()
+        
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.spacing = 10
+        view.addSubview(stackView)
+
+        // stackView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+
+        // autolayout constraint
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: detailText.bottomAnchor),
+            stackView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            stackView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -220)
+        ])
+        
         for i in 1...numberoOfGrades {
             print(i)
             let label = UILabel()
@@ -186,8 +205,9 @@ class ViewController: UIViewController {
             button.titleLabel?.font = UIFont(name: "System", size: 17)
             
             button.titleLabel?.text = "bot \(i)"
-            stackGrades.addArrangedSubview(view)
+            stackView.addArrangedSubview(view)
         }
+        view.addSubview(stackView)
         
     }
     
@@ -211,7 +231,7 @@ class ViewController: UIViewController {
         //detailText.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -120).isActive = true
 
         //stack view constrains
-        
+        /*
         stackGrades.topAnchor.constraint(equalTo: detailText.bottomAnchor, constant: 20).isActive = true
         //stackGrades.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         //stackGrades.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9).isActive = true
@@ -220,7 +240,7 @@ class ViewController: UIViewController {
         stackGrades.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
         stackGrades.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -220).isActive = true
         
-        
+        */
         
        /* //containerView constrains
         containerView.topAnchor.constraint(equalTo: stackGrades.bottomAnchor, constant: 20).isActive = true
