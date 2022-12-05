@@ -13,6 +13,7 @@
 		BE8FC9442938EA8C00E52C79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE8FC9422938EA8C00E52C79 /* Main.storyboard */; };
 		BE8FC9462938EA8F00E52C79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE8FC9452938EA8F00E52C79 /* Assets.xcassets */; };
 		BE8FC9492938EA8F00E52C79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE8FC9472938EA8F00E52C79 /* LaunchScreen.storyboard */; };
+		BE8FC952293E2CF800E52C79 /* HorizontalStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8FC951293E2CF800E52C79 /* HorizontalStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		BE8FC9452938EA8F00E52C79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE8FC9482938EA8F00E52C79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE8FC94A2938EA8F00E52C79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE8FC951293E2CF800E52C79 /* HorizontalStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				BE8FC93C2938EA8C00E52C79 /* AppDelegate.swift */,
 				BE8FC93E2938EA8C00E52C79 /* SceneDelegate.swift */,
 				BE8FC9402938EA8C00E52C79 /* ViewController.swift */,
+				BE8FC951293E2CF800E52C79 /* HorizontalStack.swift */,
 				BE8FC9422938EA8C00E52C79 /* Main.storyboard */,
 				BE8FC9452938EA8F00E52C79 /* Assets.xcassets */,
 				BE8FC9472938EA8F00E52C79 /* LaunchScreen.storyboard */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE8FC952293E2CF800E52C79 /* HorizontalStack.swift in Sources */,
 				BE8FC9412938EA8C00E52C79 /* ViewController.swift in Sources */,
 				BE8FC93D2938EA8C00E52C79 /* AppDelegate.swift in Sources */,
 				BE8FC93F2938EA8C00E52C79 /* SceneDelegate.swift in Sources */,

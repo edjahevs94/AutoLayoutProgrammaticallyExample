@@ -93,7 +93,7 @@ class ViewController: UIViewController {
     }()
     
     let containerView: UIView = {
-        let normalView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 80))
+        let normalView = UIView(frame: CGRect(x: 0, y: 0, width: 190, height: 80))
         normalView.translatesAutoresizingMaskIntoConstraints = false
         normalView.backgroundColor = .orange
         normalView.layer.cornerRadius = 10
@@ -125,11 +125,11 @@ class ViewController: UIViewController {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.backgroundColor = .gray
-        stackView.distribution = .fillEqually
+        stackView.distribution = .equalSpacing
         stackView.alignment = .center
         stackView.layer.cornerRadius = 10
         stackView.axis = .horizontal
-        stackView.spacing = 1
+        stackView.spacing = 80
         return stackView
     }()
     
@@ -150,19 +150,37 @@ class ViewController: UIViewController {
         //viewForStack.addSubview(containerLabel3)
      
         //addViewsToStackView()
- 
-        let ulText = UILabel()
-        ulText.text = "text"
-        let ulTextTwo = UILabel()
-        ulTextTwo.text = "text2"
-        horizontalStack.addArrangedSubview(ulText)
-        horizontalStack.addArrangedSubview(ulTextTwo)
-        let viewContainer = UIView()
-        //viewContainer.addSubview(horizontalStack)
-        containerView.addSubview(horizontalStack)
-        setupFirstPart()
+        for i in 1...5 {
+            let ulText = UILabel()
+            ulText.text = "Evaluacion Continua \(i)"
+            let ulTextTwo = UILabel()
+            ulTextTwo.text = "50%"
+            let ulTextThree = UILabel()
+            ulTextThree.text = "\(20-i)"
+            //horizontalStack.addArrangedSubview(ulText)
+            //horizontalStack.addArrangedSubview(ulTextTwo)
+            //horizontalStack.addArrangedSubview(ulTextThree)
+            let horiStack = HorizontalStack()
+            horiStack.addArrangedSubview(ulText)
+            horiStack.addArrangedSubview(ulTextTwo)
+            horiStack.addArrangedSubview(ulTextThree)
+
+            let viewContainer = UIView()
+            viewContainer.addSubview(horiStack)
+            
+            //containerView.addSubview(horizontalStack)
+            
+            horiStack.topAnchor.constraint(equalTo: viewContainer.topAnchor, constant: 15).isActive = true
+            horiStack.leadingAnchor.constraint(equalTo: viewContainer.leadingAnchor, constant: 10).isActive = true
+            horiStack.trailingAnchor.constraint(equalTo: viewContainer.trailingAnchor, constant: -10).isActive = true
+            horiStack.bottomAnchor.constraint(equalTo: viewContainer.bottomAnchor, constant: 0).isActive = true
+            
+            verticalStack.addArrangedSubview(viewContainer)
+        }
+        
+        //setupFirstPart()
       
-            verticalStack.addArrangedSubview(containerView)
+            
         
         
         view.addSubview(verticalStack)
@@ -242,7 +260,7 @@ class ViewController: UIViewController {
         detailText.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         //detailText.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -120).isActive = true
 
- 
+        
         
         
       
