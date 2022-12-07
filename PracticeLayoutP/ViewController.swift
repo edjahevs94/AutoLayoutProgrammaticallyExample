@@ -46,6 +46,16 @@ class ViewController: UIViewController {
         return labelView
     }()
     
+    let moreText: UILabel = {
+       let labelView = UILabel()
+        labelView.translatesAutoresizingMaskIntoConstraints = false
+        labelView.numberOfLines = 5
+        labelView.text = "This ia a very long text about why you should pick Lima University as your home of learning so now i am going to explain you"
+        labelView.textColor = .gray
+        labelView.font = labelView.font.withSize(15)
+        labelView.textAlignment = .center
+        return labelView
+    }()
 
     
     let containerLabel1: UILabel = {
@@ -139,6 +149,7 @@ class ViewController: UIViewController {
         view.addSubview(ulimaImageView)
         view.addSubview(descriptionTextView)
         view.addSubview(detailText)
+        view.addSubview(moreText)
         //containerView.addSubview(containerLabel1)
         //containerView.addSubview(containerLabel2)
         //containerView.addSubview(containerLabel3)
@@ -150,7 +161,7 @@ class ViewController: UIViewController {
         //viewForStack.addSubview(containerLabel3)
      
         //addViewsToStackView()
-        for i in 1...5 {
+        for i in 1...9 {
             let ulText = UILabel()
             ulText.text = "Evaluacion Continua \(i)"
             let ulTextTwo = UILabel()
@@ -260,7 +271,9 @@ class ViewController: UIViewController {
         detailText.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         //detailText.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -120).isActive = true
 
-        
+        moreText.topAnchor.constraint(equalTo: verticalStack.bottomAnchor, constant: 10).isActive = true
+        moreText.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        moreText.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         
         
       
