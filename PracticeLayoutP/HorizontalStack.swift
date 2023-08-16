@@ -19,12 +19,32 @@ class HorizontalStack: UIStackView {
     }
     func setupHorizontalStack() {
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = .gray
-        distribution = .equalSpacing
+        backgroundColor = .clear
+        distribution = .fill
         alignment = .center
         layer.cornerRadius = 10
         axis = .horizontal
         spacing = 80
+        
+    }
+    
+}
+
+
+class MyCustomLabel: UILabel {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupLabel()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupLabel()
+    }
+    func setupLabel() {
+        translatesAutoresizingMaskIntoConstraints = false
+        backgroundColor = .gray
+        
         
     }
     
