@@ -30,22 +30,3 @@ class HorizontalStack: UIStackView {
     
 }
 
-
-class MyCustomLabel: UILabel {
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupLabel()
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setupLabel()
-    }
-    func setupLabel() {
-        translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = .gray
-        
-        
-    }
-    
-}
