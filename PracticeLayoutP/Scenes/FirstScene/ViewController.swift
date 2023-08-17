@@ -92,6 +92,19 @@ class ViewController: UIViewController {
         return stackView
     }()
     
+    let buttonNext: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Next", for: .normal)
+        button.backgroundColor = .orange
+        button.setTitleColor(.white, for: .normal)
+        //button.frame.size.width = 200
+        button.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        button.frame.size.height = 52
+        button.layer.cornerRadius = 10
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
       
@@ -99,17 +112,10 @@ class ViewController: UIViewController {
         view.addSubview(descriptionTextView)
         view.addSubview(detailText)
         view.addSubview(moreText)
-        //containerView.addSubview(containerLabel1)
-        //containerView.addSubview(containerLabel2)
-        //containerView.addSubview(containerLabel3)
-        //stackGrades.addArrangedSubview(containerView)
-        //stackGrades.addArrangedSubview(containerView)
-        //stackGrades.addArrangedSubview(containerView)
+        view.addSubview(buttonNext)
         
-       
-        //viewForStack.addSubview(containerLabel3)
-     
-        //addViewsToStackView()
+        buttonNext.addTarget(self, action: #selector(disTapButton), for: .touchUpInside)
+        
         for i in 0..<grades.count {
             
             let grade = grades[i]
@@ -154,6 +160,15 @@ class ViewController: UIViewController {
        
     }
     
+    @objc private func disTapButton() {
+        let rootVC = SecondViewController()
+        
+        rootVC.title = "My second screen"
+        let navVc = UINavigationController(rootViewController: rootVC)
+        navVc.modalPresentationStyle = .fullScreen
+        present(navVc, animated: true)
+    }
+    
     
     private func setupLayout() {
       
@@ -177,6 +192,10 @@ class ViewController: UIViewController {
         moreText.topAnchor.constraint(equalTo: verticalStack.bottomAnchor, constant: 10).isActive = true
         moreText.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         moreText.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        
+        buttonNext.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        buttonNext.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -35).isActive = true
+        
     
     }
     

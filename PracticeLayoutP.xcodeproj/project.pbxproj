@@ -15,6 +15,8 @@
 		BE8FC9492938EA8F00E52C79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE8FC9472938EA8F00E52C79 /* LaunchScreen.storyboard */; };
 		BE8FC952293E2CF800E52C79 /* HorizontalStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8FC951293E2CF800E52C79 /* HorizontalStack.swift */; };
 		BEB01AD82A8D0B8600E44549 /* Grade.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB01AD72A8D0B8600E44549 /* Grade.swift */; };
+		BEB01ADD2A8D135600E44549 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB01ADC2A8D135600E44549 /* SecondViewController.swift */; };
+		BEB01AE42A8E5A3100E44549 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB01AE32A8E5A3100E44549 /* ThirdViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		BE8FC94A2938EA8F00E52C79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE8FC951293E2CF800E52C79 /* HorizontalStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalStack.swift; sourceTree = "<group>"; };
 		BEB01AD72A8D0B8600E44549 /* Grade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grade.swift; sourceTree = "<group>"; };
+		BEB01ADC2A8D135600E44549 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		BEB01AE32A8E5A3100E44549 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,17 +64,51 @@
 		BE8FC93B2938EA8C00E52C79 /* PracticeLayoutP */ = {
 			isa = PBXGroup;
 			children = (
+				BEB01AD92A8D12CA00E44549 /* Scenes */,
 				BE8FC93C2938EA8C00E52C79 /* AppDelegate.swift */,
 				BE8FC93E2938EA8C00E52C79 /* SceneDelegate.swift */,
-				BE8FC9402938EA8C00E52C79 /* ViewController.swift */,
-				BE8FC951293E2CF800E52C79 /* HorizontalStack.swift */,
-				BE8FC9422938EA8C00E52C79 /* Main.storyboard */,
 				BE8FC9452938EA8F00E52C79 /* Assets.xcassets */,
 				BE8FC9472938EA8F00E52C79 /* LaunchScreen.storyboard */,
 				BE8FC94A2938EA8F00E52C79 /* Info.plist */,
-				BEB01AD72A8D0B8600E44549 /* Grade.swift */,
 			);
 			path = PracticeLayoutP;
+			sourceTree = "<group>";
+		};
+		BEB01AD92A8D12CA00E44549 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				BEB01AE22A8E5A0200E44549 /* ThirdScene */,
+				BEB01ADB2A8D130B00E44549 /* SecondScene */,
+				BEB01ADA2A8D12DB00E44549 /* FirstScene */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		BEB01ADA2A8D12DB00E44549 /* FirstScene */ = {
+			isa = PBXGroup;
+			children = (
+				BE8FC9402938EA8C00E52C79 /* ViewController.swift */,
+				BE8FC951293E2CF800E52C79 /* HorizontalStack.swift */,
+				BEB01AD72A8D0B8600E44549 /* Grade.swift */,
+				BE8FC9422938EA8C00E52C79 /* Main.storyboard */,
+			);
+			path = FirstScene;
+			sourceTree = "<group>";
+		};
+		BEB01ADB2A8D130B00E44549 /* SecondScene */ = {
+			isa = PBXGroup;
+			children = (
+				BEB01ADC2A8D135600E44549 /* SecondViewController.swift */,
+			);
+			path = SecondScene;
+			sourceTree = "<group>";
+		};
+		BEB01AE22A8E5A0200E44549 /* ThirdScene */ = {
+			isa = PBXGroup;
+			children = (
+				BEB01AE32A8E5A3100E44549 /* ThirdViewController.swift */,
+			);
+			path = ThirdScene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,8 +182,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEB01ADD2A8D135600E44549 /* SecondViewController.swift in Sources */,
 				BE8FC952293E2CF800E52C79 /* HorizontalStack.swift in Sources */,
 				BE8FC9412938EA8C00E52C79 /* ViewController.swift in Sources */,
+				BEB01AE42A8E5A3100E44549 /* ThirdViewController.swift in Sources */,
 				BE8FC93D2938EA8C00E52C79 /* AppDelegate.swift in Sources */,
 				BEB01AD82A8D0B8600E44549 /* Grade.swift in Sources */,
 				BE8FC93F2938EA8C00E52C79 /* SceneDelegate.swift in Sources */,
